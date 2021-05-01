@@ -47,10 +47,11 @@ app.use(function(err, req, res, next) {
 
 // Set up mongoose connection
 const credentials = require('./credentials.json');
-const mongoDBUrl = credentials.MongoDB.url;
+const utils = require('./db_utils');
+const mongoDBUrl = utils.getMongoDBUrl(credentials);
 var mongoose = require('mongoose');
 mongoose.connect(mongoDBUrl, { useNewUrlParser: true, useUnifiedTopology: true});
 var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error: '))
+db.on('error', console.error.bind(console, 'MongoDB connection error: '));
 
 module.exports = app;
