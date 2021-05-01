@@ -47,8 +47,8 @@ app.use(function(err, req, res, next) {
 
 // Set up mongoose connection
 const credentials = require('./credentials.json');
-const utils = require('./db_utils');
-const mongoDBUrl = utils.getMongoDBUrl(credentials);
+const { getMongoDBUrl } = require('./db_utils');
+const mongoDBUrl = getMongoDBUrl(credentials);
 var mongoose = require('mongoose');
 mongoose.connect(mongoDBUrl, { useNewUrlParser: true, useUnifiedTopology: true});
 var db = mongoose.connection;
