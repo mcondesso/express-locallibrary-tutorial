@@ -83,12 +83,12 @@ function bookCreate(title, summary, isbn, author, genre, cb) {
 }
 
 
-function bookInstanceCreate(book, imprint, due_back, status, cb) {
+function bookInstanceCreate(book, imprint, due_date, status, cb) {
   bookinstancedetail = { 
     book: book,
     imprint: imprint
   }    
-  if (due_back != false) bookinstancedetail.due_back = due_back
+  if (due_date != false) bookinstancedetail.due_date = due_date
   if (status != false) bookinstancedetail.status = status
     
   var bookinstance = new BookInstance(bookinstancedetail);    
