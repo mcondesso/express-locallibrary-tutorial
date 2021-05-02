@@ -12,15 +12,13 @@ var BookInstanceSchema = new Schema(
     }
 );
 
-// Virtual for author's full name
-BookInstanceSchema
-.virtual('url')
-.get(() => `/catalog/bookinstance/${this._id}`);
+// Virtual for bookinstance url
+BookInstanceSchema.virtual('url').get(function() {
+    return `/catalog/bookinstance/${this._id}`
+});
 
 // Virtual for formatting due_date
-BookInstanceSchema
-.virtual('due_date_formatted')
-.get(function () {
+BookInstanceSchema.virtual('due_date_formatted').get(function () {
     return DateTime.fromJSDate(this.due_date).toLocaleString(DateTime.DATE_MED);
 });
 
