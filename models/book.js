@@ -13,8 +13,8 @@ var BookSchema = new Schema(
 );
 
 // Virtual for author's full name
-BookSchema
-.virtual('url')
-.get(() => `/catalog/book/${this._id}`);
+BookSchema.virtual('url').get(function() { 
+    return `/catalog/book/${this._id}`
+});
 
 module.exports = mongoose.model('Book', BookSchema);
