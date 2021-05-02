@@ -167,6 +167,7 @@ function createBooks(cb) {
 
 
 function createBookInstances(cb) {
+    console.log(books)
     async.parallel([
         function(callback) {
           bookInstanceCreate(books[0], 'London Gollancz, 2014.', false, 'Available', callback)
@@ -175,7 +176,7 @@ function createBookInstances(cb) {
           bookInstanceCreate(books[1], ' Gollancz, 2011.', false, 'Loaned', callback)
         },
         function(callback) {
-          bookInstanceCreate(books[2], ' Gollancz, 2015.', false, false, callback)
+          bookInstanceCreate(books[2], ' Gollancz, 2015.', false, 'Maintenance', callback)
         },
         function(callback) {
           bookInstanceCreate(books[3], 'New York Tom Doherty Associates, 2016.', false, 'Available', callback)
@@ -196,10 +197,10 @@ function createBookInstances(cb) {
           bookInstanceCreate(books[4], 'New York, NY Tom Doherty Associates, LLC, 2015.', false, 'Loaned', callback)
         },
         function(callback) {
-          bookInstanceCreate(books[0], 'Imprint XXX2', false, false, callback)
+          bookInstanceCreate(books[0], 'Imprint XXX2', false, 'Maintenance', callback)
         },
         function(callback) {
-          bookInstanceCreate(books[1], 'Imprint XXX3', false, false, callback)
+          bookInstanceCreate(books[1], 'Imprint XXX3', false, 'Maintenance', callback)
         }
         ],
         // Optional callback
